@@ -1,0 +1,22 @@
+ 开启22端口，root权限
+ 
+ root权限：复制1md
+ 
+ 2md编写测试命令：
+ # 请替换下面的参数进行手动测试
+ # 参数顺序：邮箱 Token 域名 你的IPv4
+ /sbin/cloudflareddns.sh "域名ID" "你的API_Token" "要解析的域名" "nas ip"
+
+ 运行后观察输出：
+如果输出 good：说明 IPv4 和 IPv6 已经全部成功同步到了 Cloudflare。
+
+验证 IPv6 抓取： 你可以输入以下命令，看看脚本内部使用的工具能不能抓到你的 IPv6：
+# Bash
+curl -6 -s https://api6.ipify.org || echo "未检测到公网 IPv6 地址"
+# 如果有 IP 输出：脚本会自动将其同步。
+# 如果输出“未检测到...”：说明你的路由器或宽带可能没开启 IPv6 分配。
+
+总结
+UI 显示：群晖面板的那个框确实只能装下一个 IPv4，这是群晖老系统的“皮肤”问题。
+
+实际效果：只要脚本里 ipv6="true"，Cloudflare 后台就会同时出现 A 记录和 AAAA 记录
