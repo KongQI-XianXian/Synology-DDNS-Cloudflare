@@ -1,3 +1,0 @@
-# 请替换下面的参数进行手动测试
-# 参数顺序：邮箱 Token 域名 你的IPv4
-/sbin/cloudflareddns.sh "你的CF邮箱" "你的API_Token" "你的域名" "nas ip"
